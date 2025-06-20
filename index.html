@@ -9,12 +9,12 @@
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 100px;
+      padding-top: 60px;
     }
 
     h1 {
       font-size: 3em;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
 
     .button {
@@ -54,6 +54,17 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    .discord-container {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    iframe {
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
   </style>
 </head>
 <body>
@@ -67,6 +78,10 @@
 
   <div id="toast" class="toast">Redirecting...</div>
 
+  <div class="discord-container">
+    <iframe src="https://discord.com/widget?id=1385671279071461478&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+
   <script>
     function redirectTo(name, url) {
       const toast = document.getElementById('toast');
@@ -78,8 +93,5 @@
       }, 1000);
     }
   </script>
-</body>
-</html>
-
 </body>
 </html>
