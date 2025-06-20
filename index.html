@@ -1,89 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Aurora Sites</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-    :root {
-      --aurora-purple: #2D1B4C;
-      --electric-blue: #3E8EDE;
-      --aurora-green: #00FFC6;
-      --white: #FFFFFF;
-      --text-light: #CCCCCC;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--aurora-purple), var(--electric-blue));
-      color: var(--white);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: linear-gradient(135deg, #00cfff, #6a0dad); /* electric blue & aurora purple */
+      color: white;
+      font-family: Arial, sans-serif;
       text-align: center;
-      flex-direction: column;
+      padding-top: 100px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-shadow: 0 0 12px var(--electric-blue);
+      font-size: 3em;
+      margin-bottom: 50px;
     }
 
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .aurora-button {
-      background: transparent;
-      color: var(--white);
-      padding: 14px 28px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border: 2px solid var(--aurora-green);
+    .button {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      border: 2px solid white;
       border-radius: 12px;
+      font-size: 1.2em;
+      text-decoration: none;
+      transition: all 0.2s ease;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 12px var(--aurora-green);
-      text-transform: uppercase;
     }
 
-    .aurora-button:hover {
-      background: var(--aurora-green);
-      color: #0D1B2A;
-      box-shadow: 0 0 24px var(--aurora-green);
-      transform: scale(1.05);
+    .button:hover {
+      background-color: white;
+      color: #6a0dad;
     }
 
-    .aurora-button.immortal {
-      border-color: var(--electric-blue);
-      box-shadow: 0 0 12px var(--electric-blue);
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 0.9em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
     }
 
-    .aurora-button.immortal:hover {
-      background: var(--electric-blue);
-      color: #0D1B2A;
-      box-shadow: 0 0 24px var(--electric-blue);
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
 <body>
   <h1>Aurora Sites</h1>
-  <div class="button-group">
-    <button class="aurora-button">Aurora Main</button>
-    <button class="aurora-button">Aurora Backup</button>
-    <button class="aurora-button immortal">Immortal (Best links)</button>
+
+  <div>
+    <a href="#" class="button" onclick="redirectTo('Aurora Main', 'https://app.genn.lu/auth/craetor')">Aurora Main</a>
+    <a href="#" class="button" onclick="redirectTo('Imortal (BEST LINKS)', 'https://robloxmorg.com/dashboard/?code=MjY0MTA3NDEwNjU1MzI2OTg0MF85NDQyMTI4MTQxMDk0NDczMTQ3')">Robloxmorg</a>
+    <a href="#" class="button" onclick="redirectTo('Autohar', 'https://bloxtools.st/generator/craetor')">Autohar</a>
   </div>
+
+  <div id="toast" class="toast">Redirecting...</div>
+
+  <script>
+    function redirectTo(name, url) {
+      const toast = document.getElementById('toast');
+      toast.textContent = `✔️ Redirecting to ${name}...`;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+        window.location.href = url;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
+
 </body>
 </html>
