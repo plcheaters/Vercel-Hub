@@ -57,6 +57,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s;
+      z-index: 999;
     }
 
     .toast.show {
@@ -115,13 +116,25 @@
     <iframe src="https://discord.com/widget?id=1385671279071461478&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   </div>
 
+  <!-- Toast notification -->
   <div id="toast" class="toast">Redirecting...</div>
+
+  <!-- Click sound -->
+  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_5e263dea4d.mp3"></audio>
 
   <script>
     function redirectTo(name, url) {
       const toast = document.getElementById('toast');
+      const clickSound = document.getElementById('clickSound');
+
+      if (clickSound) {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      }
+
       toast.textContent = `✔️ Redirecting to ${name}...`;
       toast.classList.add('show');
+
       setTimeout(() => {
         toast.classList.remove('show');
         window.location.href = url;
