@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aurora Sites</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+    :root {
+      --aurora-purple: #2D1B4C;
+      --electric-blue: #3E8EDE;
+      --aurora-green: #00FFC6;
+      --white: #FFFFFF;
+      --text-light: #CCCCCC;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--aurora-purple), var(--electric-blue));
+      color: var(--white);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 12px var(--electric-blue);
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .aurora-button {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: 2px solid var(--aurora-green);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px var(--aurora-green);
+      text-transform: uppercase;
+    }
+
+    .aurora-button:hover {
+      background: var(--aurora-green);
+      color: #0D1B2A;
+      box-shadow: 0 0 24px var(--aurora-green);
+      transform: scale(1.05);
+    }
+
+    .aurora-button.immortal {
+      border-color: var(--electric-blue);
+      box-shadow: 0 0 12px var(--electric-blue);
+    }
+
+    .aurora-button.immortal:hover {
+      background: var(--electric-blue);
+      color: #0D1B2A;
+      box-shadow: 0 0 24px var(--electric-blue);
+    }
+  </style>
+</head>
+<body>
+  <h1>Aurora Sites</h1>
+  <div class="button-group">
+    <button class="aurora-button">Aurora Main</button>
+    <button class="aurora-button">Aurora Backup</button>
+    <button class="aurora-button immortal">Immortal (Best links)</button>
+  </div>
+</body>
+</html>
