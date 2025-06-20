@@ -5,11 +5,20 @@
   <title>Aurora Sites</title>
   <style>
     body {
-      background: linear-gradient(135deg, #00cfff, #6a0dad); /* electric blue & aurora purple */
+      margin: 0;
+      background: linear-gradient(135deg, #00cfff, #6a0dad);
       color: white;
       font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .main-content {
+      width: 60%;
+      padding: 80px 40px;
       text-align: center;
-      padding-top: 60px;
     }
 
     h1 {
@@ -55,32 +64,69 @@
       pointer-events: auto;
     }
 
-    .discord-container {
-      margin-top: 50px;
+    .discord-panel {
+      width: 40%;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
     }
 
-    iframe {
+    .discord-panel img.banner {
+      max-width: 100%;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      margin-bottom: 15px;
+    }
+
+    .discord-panel iframe {
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .invite-style {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(255,255,255,0.2);
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .main-content, .discord-panel {
+        width: 90%;
+      }
+
+      .discord-panel {
+        margin-top: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Aurora Sites</h1>
+  <div class="main-content">
+    <h1>Aurora Sites</h1>
 
-  <div>
-    <a href="#" class="button" onclick="redirectTo('Aurora Main', 'https://app.genn.lu/auth/craetor')">Aurora Main</a>
-    <a href="#" class="button" onclick="redirectTo('Imortal (BEST LINKS)', 'https://robloxmorg.com/dashboard/?code=MjY0MTA3NDEwNjU1MzI2OTg0MF85NDQyMTI4MTQxMDk0NDczMTQ3')">Imortal (BEST LINKS)</a>
-    <a href="#" class="button" onclick="redirectTo('Autohar', 'https://bloxtools.st/generator/craetor')">Autohar</a>
+    <div>
+      <a href="#" class="button" onclick="redirectTo('Aurora Main', 'https://app.genn.lu/auth/craetor')">Aurora Main</a>
+      <a href="#" class="button" onclick="redirectTo('Imortal (Best links)', 'https://robloxmorg.com/dashboard/?code=MjY0MTA3NDEwNjU1MzI2OTg0MF85NDQyMTI4MTQxMDk0NDczMTQ3')">Imortal (Best links)</a>
+      <a href="#" class="button" onclick="redirectTo('Autohar', 'https://bloxtools.st/generator/craetor')">Autohar</a>
+    </div>
+  </div>
+
+  <div class="discord-panel">
+    <img class="banner" src="https://cdn.discordapp.com/attachments/1385674372299362304/1385683942186815529/image.png?ex=6856f63c&is=6855a4bc&hm=a1346852e931401339fa8ec97c71c3a2ce68cb3c699bd165b9c5ee0d13974bfc&" alt="Discord Banner">
+    
+    <iframe src="https://discord.com/widget?id=1385671279071461478&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    
+    <img class="invite-style" src="https://cdn.discordapp.com/attachments/1385674372299362304/1385684616865910924/standard_11.gif?ex=6856f6dd&is=6855a55d&hm=5bd0033aa39fb4118947d8cabac858c0938f8a34c06ea513d6a3f46a8e6d1c10&" alt="Join our Discord">
   </div>
 
   <div id="toast" class="toast">Redirecting...</div>
-
-  <div class="discord-container">
-    <iframe src="https://discord.com/widget?id=1385671279071461478&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-  </div>
 
   <script>
     function redirectTo(name, url) {
